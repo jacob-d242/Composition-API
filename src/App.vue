@@ -1,6 +1,6 @@
 <script setup>
 import { ref,computed } from 'vue'
-
+import MainAppR from './MainAppR.vue'
 
 const listItems = ref([
    {
@@ -53,7 +53,8 @@ const togglePurchase = (item) => {
 </script>
 
 <template>
-  <div class="header">
+  <div>
+    <div class="header">
     <h1>{{ msg }}</h1>
     <button v-if="editing" class="btn btn-primary" @click="editItem(false)">Cancel</button>
     <button v-else class="btn btn-primary" @click="editItem(true)">Add New</button>
@@ -91,4 +92,8 @@ const togglePurchase = (item) => {
   <p v-if="!listItems.length">
     No Items available please add in the above
   </p>
+  </div>
+ <div>
+  <MainAppR/>
+ </div>
 </template>
