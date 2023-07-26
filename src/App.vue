@@ -23,12 +23,11 @@ const listItems = ref([
    }
 ])
 const msg = ref('Shopping List App!')
-const characterCount = computed(()=>{
-  return newItem.value.length
-}) 
+const characterCount = computed(()=> newItem.value.length) 
 const newItem = ref('')
 const newItemHighPriority = ref(false)
 const editing = ref(false);
+const reverseItems = computed(() => [...listItems.value].reverse())
 const saveItem = () => {
   listItems.value.push(
     {
@@ -77,7 +76,7 @@ const togglePurchase = (item) => {
   <p>{{ characterCount }}/100</p>
   <ul>
     <li
-      v-for="( item, index ) in listItems"
+      v-for="( item, index ) in reverseItems"
       @click="togglePurchase(item)"
       class="static-class"
       :key="item.id"
